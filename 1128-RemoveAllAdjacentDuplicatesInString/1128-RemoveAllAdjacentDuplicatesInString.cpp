@@ -1,0 +1,27 @@
+// Last updated: 06/03/2026, 21:36:26
+class Solution {
+public:
+    string removeDuplicates(string s) {
+        int n = s.size();
+        stack<int> st;
+        string res;
+        for(int i = 0; i < n; i++) {
+            if(st.empty()) {
+                st.push(s[i]);
+                continue;
+            }
+             if(st.top() == s[i]) {
+                 st.pop();
+                 
+             } else {
+                 st.push(s[i]);
+             }
+        }
+        while(!st.empty()) {
+                res.push_back(st.top());
+                st.pop();
+        }
+        reverse(res.begin(), res.end());
+        return res;
+    }
+};
